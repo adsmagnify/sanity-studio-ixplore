@@ -1,0 +1,585 @@
+/* Ixplore Travel Theme - Accessible & Simple Design for All Ages */
+
+:root {
+  /* Travel-themed color palette */
+  --ixplore-primary: #4a90e2;
+  --ixplore-primary-dark: #357abd;
+  --ixplore-bg: #0a1929;
+  --ixplore-bg-light: #0f1f35;
+  --ixplore-border: #1e3a5f;
+  --ixplore-text: #ffffff;
+  --ixplore-text-muted: #b8cfe0;
+  --ixplore-success: #2ecc71;
+  --ixplore-warning: #f39c12;
+  --ixplore-error: #e74c3c;
+
+  /* Enhanced spacing for accessibility */
+  --ixplore-spacing-xs: 8px;
+  --ixplore-spacing-sm: 12px;
+  --ixplore-spacing-md: 20px;
+  --ixplore-spacing-lg: 32px;
+  --ixplore-spacing-xl: 48px;
+  --ixplore-spacing-2xl: 64px;
+
+  /* Border radius - softer, more approachable */
+  --ixplore-radius-sm: 6px;
+  --ixplore-radius-md: 10px;
+  --ixplore-radius-lg: 16px;
+}
+
+/* ============================================
+   BASE STYLING - LARGER, CLEARER TEXT
+   ============================================ */
+
+body {
+  color: var(--ixplore-text) !important;
+  background: var(--ixplore-bg) !important;
+  font-size: 16px !important;
+  line-height: 1.7 !important;
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
+}
+
+/* ============================================
+   LAYOUT - CLEAN, SIMPLE, NO HORIZONTAL SIDEBARS
+   ============================================ */
+
+/* Main layout - full width, clean */
+[data-ui='Layout'],
+div[data-ui='Layout'],
+#sanity {
+  width: 100% !important;
+  max-width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+/* Main content area - spacious and centered */
+[data-ui='Main'],
+main[data-ui='Main'] {
+  background: var(--ixplore-bg-light) !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  padding: var(--ixplore-spacing-xl) !important;
+  flex: 1 !important;
+  overflow-y: auto !important;
+}
+
+/* Form container - comfortable width, not too wide */
+[data-ui='FormContainer'],
+[data-ui='DocumentPanel'],
+div[data-ui='FormContainer'],
+div[data-ui='DocumentPanel'] {
+  max-width: 1200px !important;
+  width: 100% !important;
+  padding: var(--ixplore-spacing-xl) !important;
+  margin: 0 auto !important;
+}
+
+/* Editor content area */
+[data-ui='DocumentPane'],
+div[data-ui='DocumentPane'] {
+  max-width: 100% !important;
+  padding: var(--ixplore-spacing-lg) !important;
+}
+
+/* Remove any horizontal sidebars or panels */
+[data-ui='SplitPane'][data-orientation='horizontal'],
+div[data-ui='SplitPane'][data-orientation='horizontal'] {
+  display: none !important;
+}
+
+/* ============================================
+   SIDEBAR - WIDER, CLEARER NAVIGATION
+   ============================================ */
+
+/* Sidebar - compact but still accessible */
+[data-ui='Sidebar'],
+aside[data-ui='Sidebar'],
+[data-testid='sidebar'],
+aside[data-testid='sidebar'],
+nav[role='navigation'],
+aside {
+  background: var(--ixplore-bg) !important;
+  border-right: 2px solid var(--ixplore-border) !important;
+  width: 240px !important;
+  min-width: 240px !important;
+  max-width: 240px !important;
+  padding: var(--ixplore-spacing-md) !important;
+  font-size: 16px !important;
+}
+
+/* Sidebar list items - larger, easier to click */
+[data-ui='TreeView'] [data-ui='TreeViewItem'],
+[data-ui='TreeViewItem'],
+[data-ui='TreeView'] > * {
+  color: var(--ixplore-text) !important;
+  padding: var(--ixplore-spacing-sm) var(--ixplore-spacing-md) !important;
+  margin: var(--ixplore-spacing-xs) 0 !important;
+  border-radius: var(--ixplore-radius-md) !important;
+  font-size: 15px !important;
+  min-height: 44px !important;
+  display: flex !important;
+  align-items: center !important;
+  transition: all 0.2s ease !important;
+  cursor: pointer !important;
+}
+
+[data-ui='TreeView'] [data-ui='TreeViewItem']:hover,
+[data-ui='TreeViewItem']:hover {
+  background: var(--ixplore-bg-light) !important;
+  border-left: 4px solid var(--ixplore-primary) !important;
+  padding-left: calc(var(--ixplore-spacing-md) - 4px) !important;
+}
+
+/* Active/selected sidebar item */
+[data-ui='TreeView'] [data-ui='TreeViewItem'][data-selected='true'],
+[data-ui='TreeViewItem'][data-selected='true'] {
+  background: var(--ixplore-bg-light) !important;
+  border-left: 4px solid var(--ixplore-primary) !important;
+  font-weight: 600 !important;
+}
+
+/* ============================================
+   NAVBAR - CLEANER, LARGER
+   ============================================ */
+
+/* Navbar - taller with better spacing */
+[data-ui='Navbar'],
+nav[data-ui='Navbar'] {
+  background: var(--ixplore-bg-light) !important;
+  border-bottom: 2px solid var(--ixplore-border) !important;
+  color: var(--ixplore-text) !important;
+  padding: var(--ixplore-spacing-lg) var(--ixplore-spacing-xl) !important;
+  height: auto !important;
+  min-height: 72px !important;
+  font-size: 16px !important;
+}
+
+/* Navbar buttons and icons - larger */
+[data-ui='Navbar'] button,
+[data-ui='Navbar'] [data-ui='Button'],
+nav[data-ui='Navbar'] button {
+  min-height: 44px !important;
+  min-width: 44px !important;
+  padding: var(--ixplore-spacing-sm) var(--ixplore-spacing-md) !important;
+  font-size: 16px !important;
+}
+
+/* ============================================
+   TYPOGRAPHY - LARGER, CLEARER
+   ============================================ */
+
+/* Headings - much larger and clearer */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--ixplore-text) !important;
+  font-weight: 600 !important;
+  line-height: 1.4 !important;
+  margin-bottom: var(--ixplore-spacing-lg) !important;
+  letter-spacing: -0.02em !important;
+}
+
+h1 {
+  font-size: 40px !important;
+  margin-bottom: var(--ixplore-spacing-xl) !important;
+}
+
+h2 {
+  font-size: 32px !important;
+  margin-bottom: var(--ixplore-spacing-lg) !important;
+}
+
+h3 {
+  font-size: 24px !important;
+  margin-bottom: var(--ixplore-spacing-md) !important;
+}
+
+h4 {
+  font-size: 20px !important;
+}
+
+/* Body text - larger and more readable */
+p,
+span,
+div {
+  color: var(--ixplore-text) !important;
+  line-height: 1.7 !important;
+  font-size: 16px !important;
+}
+
+/* Field labels - larger and bolder */
+[data-ui='Label'],
+label[data-ui='Label'] {
+  font-weight: 600 !important;
+  margin-bottom: var(--ixplore-spacing-md) !important;
+  color: var(--ixplore-text) !important;
+  font-size: 18px !important;
+  display: block !important;
+}
+
+/* Help text and descriptions */
+[data-ui='FieldDescription'],
+[data-ui='HelpText'] {
+  font-size: 15px !important;
+  color: var(--ixplore-text-muted) !important;
+  margin-top: var(--ixplore-spacing-sm) !important;
+  line-height: 1.6 !important;
+}
+
+/* ============================================
+   BUTTONS - LARGER, EASIER TO CLICK
+   ============================================ */
+
+/* All buttons - larger minimum size */
+[data-ui='Button'],
+button[data-ui='Button'],
+button {
+  padding: var(--ixplore-spacing-md) var(--ixplore-spacing-xl) !important;
+  border-radius: var(--ixplore-radius-md) !important;
+  font-weight: 500 !important;
+  font-size: 16px !important;
+  min-height: 48px !important;
+  min-width: 120px !important;
+  transition: all 0.2s ease !important;
+  cursor: pointer !important;
+  border: 2px solid transparent !important;
+}
+
+/* Primary buttons - prominent and clear */
+[data-ui='Button'][data-tone='primary'],
+button[data-ui='Button'][data-tone='primary'],
+button[type='submit'] {
+  background: var(--ixplore-primary) !important;
+  color: var(--ixplore-text) !important;
+  border-color: var(--ixplore-primary) !important;
+  font-weight: 600 !important;
+  font-size: 17px !important;
+}
+
+[data-ui='Button'][data-tone='primary']:hover,
+button[data-ui='Button'][data-tone='primary']:hover,
+button[type='submit']:hover {
+  background: var(--ixplore-primary-dark) !important;
+  border-color: var(--ixplore-primary-dark) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 12px rgba(74, 144, 226, 0.4) !important;
+}
+
+/* Publish button - extra prominent */
+button[data-testid='action-Publish'],
+[data-testid='action-Publish'] {
+  background: var(--ixplore-success) !important;
+  border-color: var(--ixplore-success) !important;
+  font-size: 17px !important;
+  font-weight: 600 !important;
+  padding: var(--ixplore-spacing-md) var(--ixplore-spacing-xl) !important;
+  min-height: 52px !important;
+}
+
+/* ============================================
+   INPUTS - LARGER, CLEARER
+   ============================================ */
+
+/* All inputs - larger and more comfortable */
+[data-ui='TextInput'],
+[data-ui='TextArea'],
+[data-ui='Select'],
+input[data-ui='TextInput'],
+textarea[data-ui='TextArea'],
+select[data-ui='Select'],
+input,
+textarea,
+select {
+  background: var(--ixplore-bg) !important;
+  border: 2px solid var(--ixplore-border) !important;
+  color: var(--ixplore-text) !important;
+  border-radius: var(--ixplore-radius-md) !important;
+  padding: var(--ixplore-spacing-md) var(--ixplore-spacing-lg) !important;
+  font-size: 16px !important;
+  line-height: 1.6 !important;
+  min-height: 52px !important;
+  transition: all 0.2s ease !important;
+  width: 100% !important;
+}
+
+/* Focus states - very clear */
+[data-ui='TextInput']:focus,
+[data-ui='TextArea']:focus,
+[data-ui='Select']:focus,
+input[data-ui='TextInput']:focus,
+textarea[data-ui='TextArea']:focus,
+select[data-ui='Select']:focus,
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--ixplore-primary) !important;
+  box-shadow: 0 0 0 4px rgba(74, 144, 226, 0.2) !important;
+  outline: none !important;
+  background: var(--ixplore-bg-light) !important;
+}
+
+/* Textarea - taller */
+[data-ui='TextArea'],
+textarea[data-ui='TextArea'],
+textarea {
+  min-height: 160px !important;
+  resize: vertical !important;
+  padding: var(--ixplore-spacing-lg) !important;
+}
+
+/* Placeholder text - larger */
+::placeholder {
+  color: var(--ixplore-text-muted) !important;
+  font-size: 16px !important;
+  opacity: 0.7 !important;
+}
+
+/* ============================================
+   CARDS - SPACIOUS, CLEAR
+   ============================================ */
+
+/* Card styling - more padding, clearer */
+[data-ui='Card'],
+div[data-ui='Card'] {
+  background: var(--ixplore-bg-light) !important;
+  border: 2px solid var(--ixplore-border) !important;
+  color: var(--ixplore-text) !important;
+  border-radius: var(--ixplore-radius-lg) !important;
+  padding: var(--ixplore-spacing-xl) !important;
+  margin-bottom: var(--ixplore-spacing-lg) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+  transition: all 0.2s ease !important;
+}
+
+[data-ui='Card']:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2) !important;
+  border-color: var(--ixplore-primary) !important;
+}
+
+/* ============================================
+   FORMS - BETTER SPACING AND ORGANIZATION
+   ============================================ */
+
+/* Form fields - generous spacing */
+[data-ui='Field'],
+div[data-ui='Field'] {
+  margin-bottom: var(--ixplore-spacing-xl) !important;
+}
+
+/* Field groups - clear separation */
+[data-ui='FieldGroup'],
+div[data-ui='FieldGroup'] {
+  padding: var(--ixplore-spacing-xl) !important;
+  background: var(--ixplore-bg) !important;
+  border-radius: var(--ixplore-radius-lg) !important;
+  border: 2px solid var(--ixplore-border) !important;
+  margin-bottom: var(--ixplore-spacing-xl) !important;
+}
+
+/* Fieldset - clearer grouping */
+fieldset {
+  border: 2px solid var(--ixplore-border) !important;
+  border-radius: var(--ixplore-radius-lg) !important;
+  padding: var(--ixplore-spacing-xl) !important;
+  margin-bottom: var(--ixplore-spacing-xl) !important;
+}
+
+legend {
+  font-size: 20px !important;
+  font-weight: 600 !important;
+  color: var(--ixplore-text) !important;
+  padding: 0 var(--ixplore-spacing-md) !important;
+}
+
+/* ============================================
+   LISTS - CLEARER, EASIER TO SCAN
+   ============================================ */
+
+/* Document list items - larger, card-like */
+[data-ui='DocumentListPane'] [data-ui='DocumentListItem'],
+[data-ui='DocumentListItem'] {
+  padding: var(--ixplore-spacing-lg) !important;
+  margin-bottom: var(--ixplore-spacing-md) !important;
+  border-radius: var(--ixplore-radius-md) !important;
+  border: 2px solid var(--ixplore-border) !important;
+  background: var(--ixplore-bg-light) !important;
+  transition: all 0.2s ease !important;
+  min-height: 64px !important;
+  font-size: 16px !important;
+  cursor: pointer !important;
+}
+
+[data-ui='DocumentListPane'] [data-ui='DocumentListItem']:hover,
+[data-ui='DocumentListItem']:hover {
+  background: var(--ixplore-bg) !important;
+  border-color: var(--ixplore-primary) !important;
+  transform: translateX(6px) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* ============================================
+   TABS - LARGER, CLEARER
+   ============================================ */
+
+/* Tab buttons - larger and easier to click */
+[data-ui='TabList'] button,
+[role='tab'] {
+  padding: var(--ixplore-spacing-md) var(--ixplore-spacing-lg) !important;
+  font-size: 16px !important;
+  min-height: 48px !important;
+  font-weight: 500 !important;
+}
+
+[role='tab'][aria-selected='true'] {
+  font-weight: 600 !important;
+  border-bottom: 3px solid var(--ixplore-primary) !important;
+}
+
+/* ============================================
+   SCROLLBAR - WIDER, EASIER TO USE
+   ============================================ */
+
+::-webkit-scrollbar {
+  width: 14px;
+  height: 14px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--ixplore-bg);
+  border-radius: var(--ixplore-radius-sm);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--ixplore-border);
+  border-radius: var(--ixplore-radius-sm);
+  border: 2px solid var(--ixplore-bg);
+  transition: background 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ixplore-primary);
+}
+
+/* ============================================
+   FOCUS STATES - VERY CLEAR
+   ============================================ */
+
+*:focus-visible {
+  outline: 3px solid var(--ixplore-primary) !important;
+  outline-offset: 3px !important;
+  border-radius: var(--ixplore-radius-sm) !important;
+}
+
+/* Links - larger and clearer */
+a {
+  color: var(--ixplore-primary) !important;
+  font-size: 16px !important;
+  text-decoration: underline !important;
+  text-underline-offset: 3px !important;
+}
+
+a:hover {
+  color: var(--ixplore-primary-dark) !important;
+}
+
+/* ============================================
+   ICONS - LARGER
+   ============================================ */
+
+/* Icons in buttons and navigation */
+[data-ui='Button'] svg,
+button svg,
+[data-ui='Navbar'] svg {
+  width: 20px !important;
+  height: 20px !important;
+}
+
+/* ============================================
+   RESPONSIVE - MOBILE FRIENDLY
+   ============================================ */
+
+@media (max-width: 768px) {
+  [data-ui='Sidebar'],
+  aside[data-ui='Sidebar'] {
+    width: 100% !important;
+    min-width: 100% !important;
+  }
+
+  [data-ui='Main'],
+  main[data-ui='Main'] {
+    padding: var(--ixplore-spacing-lg) !important;
+  }
+
+  [data-ui='FormContainer'],
+  div[data-ui='FormContainer'] {
+    padding: var(--ixplore-spacing-lg) !important;
+  }
+
+  h1 {
+    font-size: 32px !important;
+  }
+
+  h2 {
+    font-size: 24px !important;
+  }
+}
+
+/* ============================================
+   UTILITY - CLEANER SPACING
+   ============================================ */
+
+/* Better spacing in containers */
+[data-ui='Container'],
+div[data-ui='Container'] {
+  padding: var(--ixplore-spacing-xl) !important;
+}
+
+/* Improved divider styling */
+[data-ui='Divider'],
+hr[data-ui='Divider'],
+hr {
+  border-color: var(--ixplore-border) !important;
+  border-width: 2px !important;
+  margin: var(--ixplore-spacing-xl) 0 !important;
+}
+
+/* Remove any horizontal scrollbars from main content */
+[data-ui='Main'],
+main[data-ui='Main'] {
+  overflow-x: hidden !important;
+}
+
+/* ============================================
+   ACCESSIBILITY IMPROVEMENTS
+   ============================================ */
+
+/* Better contrast for text */
+[data-ui='TextMuted'],
+.text-muted {
+  color: var(--ixplore-text-muted) !important;
+  font-size: 15px !important;
+}
+
+/* Clear error states */
+[data-ui='Field'][data-invalid='true'],
+.field-invalid {
+  border-color: var(--ixplore-error) !important;
+}
+
+[data-ui='FieldError'] {
+  color: var(--ixplore-error) !important;
+  font-size: 15px !important;
+  margin-top: var(--ixplore-spacing-sm) !important;
+  font-weight: 500 !important;
+}
+
+/* Success states */
+[data-ui='FieldSuccess'] {
+  color: var(--ixplore-success) !important;
+  font-size: 15px !important;
+}
